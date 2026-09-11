@@ -11,42 +11,51 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
     background: linear-gradient(135deg, #ffe0ec, #d9f3ff);
     color: #333;
+    overflow-x: hidden;
 }
 
+/* Main Card */
 .card {
-    width: min(92%, 520px);
-    padding: 35px 25px;
+    width: min(92%, 560px);
+    margin: 30px auto;
+    padding: 30px 22px 40px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 28px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     position: relative;
     z-index: 2;
 }
 
+/* Cake */
 .cake {
-    font-size: 70px;
+    font-size: 75px;
+    animation: bounce 2s infinite;
 }
 
 h1 {
-    font-size: clamp(30px, 8vw, 48px);
-    margin: 10px 0;
+    font-size: clamp(32px, 9vw, 52px);
+    margin: 8px 0;
     color: #e85d8e;
 }
 
 h2 {
     margin: 8px 0 18px;
-    font-size: 24px;
+    font-size: 25px;
+}
+
+h3 {
+    margin-bottom: 12px;
 }
 
 p {
@@ -54,62 +63,176 @@ p {
     line-height: 1.6;
 }
 
-.from {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
+/* Buttons */
 .btn {
     border: 0;
     border-radius: 999px;
-    padding: 14px 24px;
-    font-size: 17px;
+    padding: 13px 20px;
+    margin: 7px 4px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     background: #e85d8e;
     color: white;
     box-shadow: 0 8px 18px rgba(232, 93, 142, 0.3);
+    transition: 0.2s;
 }
 
-.surprise {
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.blue {
+    background: #6878ff;
+}
+
+.gold {
+    background: #f39c12;
+}
+
+.green {
+    background: #36a269;
+}
+
+/* Sections */
+.section {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid #eee;
+}
+
+/* Hidden elements */
+.hidden {
     display: none;
-    margin-top: 22px;
-    font-size: 19px;
 }
 
 .show {
     display: block;
+    animation: appear 0.7s ease;
 }
 
+/* Surprise */
+.surprise {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #fff3f8;
+    font-size: 19px;
+}
+
+/* Secret Message */
+.secret {
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    background: #f2efff;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Balloons */
 .balloon {
-    position: absolute;
+    position: fixed;
     font-size: 42px;
+    z-index: 1;
     animation: float 4s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .b1 {
-    left: 6%;
+    left: 4%;
     top: 10%;
 }
 
 .b2 {
-    right: 7%;
+    right: 5%;
     top: 18%;
     animation-delay: 1s;
 }
 
 .b3 {
-    left: 12%;
+    left: 8%;
     bottom: 12%;
     animation-delay: 2s;
 }
 
 .b4 {
-    right: 12%;
-    bottom: 8%;
+    right: 9%;
+    bottom: 7%;
     animation-delay: 1.5s;
 }
 
+/* Candle */
+.candle {
+    font-size: 50px;
+    animation: pulse 1.5s infinite;
+}
+
+/* Countdown */
+.countdown {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    margin-top: 15px;
+}
+
+.time {
+    padding: 12px 4px;
+    background: #fff0f5;
+    border-radius: 14px;
+    font-weight: bold;
+}
+
+.time span {
+    display: block;
+    font-size: 24px;
+    color: #e85d8e;
+}
+
+.time small {
+    font-size: 11px;
+}
+
+/* Photo */
+.photo-box {
+    padding: 25px;
+    border: 2px dashed #e8a7c0;
+    border-radius: 18px;
+    color: #777;
+    background: #fffafd;
+}
+
+/* Memories */
+.memory {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 16px;
+    background: #f7fbff;
+    text-align: left;
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    top: -15px;
+    width: 10px;
+    height: 16px;
+    z-index: 20;
+    animation: fall 2.8s linear forwards;
+    pointer-events: none;
+}
+
+/* Heart animation */
+.heart {
+    font-size: 35px;
+    animation: heartbeat 1.2s infinite;
+}
+
+/* Animations */
 @keyframes float {
     0%, 100% {
         transform: translateY(0) rotate(-3deg);
@@ -119,18 +242,82 @@ p {
         transform: translateY(-18px) rotate(3deg);
     }
 }
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Mobile */
+@media (max-width: 420px) {
+
+    .card {
+        padding: 24px 15px 32px;
+    }
+
+    .countdown {
+        gap: 4px;
+    }
+
+    .time {
+        padding: 10px 2px;
+    }
+
+    .time span {
+        font-size: 20px;
+    }
+
+    .balloon {
+        font-size: 34px;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- Floating Balloons -->
 <div class="balloon b1">🎈</div>
 <div class="balloon b2">🎈</div>
 <div class="balloon b3">🎈</div>
 <div class="balloon b4">🎈</div>
 
+
 <main class="card">
 
+    <!-- Birthday Header -->
     <div class="cake">🎂</div>
 
     <h1>Happy Birthday!</h1>
@@ -147,22 +334,357 @@ p {
         and grant you all the good things you wish for.
     </p>
 
-    <button class="btn"
-        onclick="document.getElementById('surprise').classList.add('show'); this.textContent='🎉 Surprise Opened!'">
+
+    <!-- Surprise Button -->
+    <button class="btn" onclick="openSurprise()">
         Open Your Surprise 🎁
     </button>
 
-    <div id="surprise" class="surprise">
-        🥳 Once again, Happy Birthday Muhammad Tayyab!
-        Have an amazing day! 🎊
+
+    <!-- Surprise Section -->
+    <div id="surprise" class="surprise hidden">
+
+        <div class="candle">
+            🕯️ 🎂 🕯️
+        </div>
+
+        <h3>
+            🎉 Surprise Opened!
+        </h3>
+
+        <p>
+            Once again, Happy Birthday Muhammad Tayyab!
+            Have an amazing day! 🥳
+        </p>
+
+        <button class="btn gold" onclick="celebrate()">
+            Celebrate! 🎊
+        </button>
+
     </div>
 
+
+    <!-- Countdown -->
+    <div class="section">
+
+        <h3>
+            ⏳ Birthday Countdown
+        </h3>
+
+        <p id="countText">
+            Counting down to your next birthday...
+        </p>
+
+        <div class="countdown">
+
+            <div class="time">
+                <span id="days">0</span>
+                <small>Days</small>
+            </div>
+
+            <div class="time">
+                <span id="hours">0</span>
+                <small>Hours</small>
+            </div>
+
+            <div class="time">
+                <span id="minutes">0</span>
+                <small>Minutes</small>
+            </div>
+
+            <div class="time">
+                <span id="seconds">0</span>
+                <small>Seconds</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Secret Message -->
+    <div class="section">
+
+        <h3>
+            💌 Secret Message
+        </h3>
+
+        <button class="btn blue"
+                onclick="toggleSecret()">
+
+            Open Secret Message 💌
+
+        </button>
+
+        <div id="secret" class="secret hidden">
+
+            May Allah keep you happy, successful and blessed,
+            and fill your life with goodness and barakah.
+
+            <br><br>
+
+            <strong>Ameen. 🤲</strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- Photo Corner -->
+    <div class="section">
+
+        <h3>
+            📸 Photo Corner
+        </h3>
+
+        <div class="photo-box">
+
+            <div style="font-size:50px;">
+                📷
+            </div>
+
+            <p>
+                Your special photo can be added here later.
+            </p>
+
+            <small>
+                No photo is included right now.
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- Memories -->
+    <div class="section">
+
+        <h3>
+            ❤️ Best Memories
+        </h3>
+
+        <div class="memory">
+            🌟 Good times, good laughs, and unforgettable memories.
+        </div>
+
+        <div class="memory">
+            😊 May there be many more happy moments ahead.
+        </div>
+
+        <div class="memory">
+            🤝 Here's to a great year and even better memories!
+        </div>
+
+    </div>
+
+
+    <!-- Dua -->
+    <div class="section">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+        <h3>
+            🌙 A Special Dua
+        </h3>
+
+        <p>
+            May Allah grant you happiness, success,
+            good health, peace, and barakah in your life.
+        </p>
+
+        <p>
+            May every coming year bring you closer
+            to your goals and to Allah.
+        </p>
+
+        <strong>
+            Ameen Ya Rabb-ul-Alameen 🤲
+        </strong>
+
+    </div>
+
+
+    <!-- Final Message -->
+    <div class="section">
+
+        <h3>
+            🎊 Once Again...
+        </h3>
+
+        <h2>
+            Happy Birthday Muhammad Tayyab! 🎂
+        </h2>
+
+        <p>
+            Keep smiling, keep growing,
+            and keep making beautiful memories!
+        </p>
+
+    </div>
+
+
     <p class="from">
+
         With best wishes,<br>
-        Muhammad
+
+        <strong>
+            Muhammad
+        </strong>
+
     </p>
 
 </main>
+
+
+<script>
+
+/* =========================
+   SURPRISE
+========================= */
+
+function openSurprise() {
+
+    const surprise =
+        document.getElementById("surprise");
+
+    surprise.classList.add("show");
+
+    celebrate();
+
+    window.scrollTo({
+        top: surprise.offsetTop - 30,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function celebrate() {
+
+    for (let i = 0; i < 100; i++) {
+
+        const confetti =
+            document.createElement("div");
+
+        confetti.className = "confetti";
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDelay =
+            Math.random() * 1.2 + "s";
+
+        confetti.style.background =
+            "hsl(" +
+            Math.random() * 360 +
+            ", 80%, 60%)";
+
+        confetti.style.transform =
+            "rotate(" +
+            Math.random() * 360 +
+            "deg)";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+
+            confetti.remove();
+
+        }, 4500);
+    }
+}
+
+
+/* =========================
+   SECRET MESSAGE
+========================= */
+
+function toggleSecret() {
+
+    const secret =
+        document.getElementById("secret");
+
+    secret.classList.toggle("show");
+
+}
+
+
+/* =========================
+   COUNTDOWN
+   Birthday: 11 September
+========================= */
+
+function updateCountdown() {
+
+    const now = new Date();
+
+    let year =
+        now.getFullYear();
+
+    let birthday =
+        new Date(year, 8, 11);
+
+    if (now >= birthday) {
+
+        birthday =
+            new Date(year + 1, 8, 11);
+
+    }
+
+    const difference =
+        birthday - now;
+
+    const days =
+        Math.floor(
+            difference / 86400000
+        );
+
+    const hours =
+        Math.floor(
+            difference / 3600000
+        ) % 24;
+
+    const minutes =
+        Math.floor(
+            difference / 60000
+        ) % 60;
+
+    const seconds =
+        Math.floor(
+            difference / 1000
+        ) % 60;
+
+
+    document.getElementById("days")
+        .textContent = days;
+
+    document.getElementById("hours")
+        .textContent = hours;
+
+    document.getElementById("minutes")
+        .textContent = minutes;
+
+    document.getElementById("seconds")
+        .textContent = seconds;
+
+}
+
+
+/* Start Countdown */
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+</script>
 
 </body>
 </html>
