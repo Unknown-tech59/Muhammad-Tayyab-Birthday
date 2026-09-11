@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Muhammad Tayyab 🎉</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffe0ec, #d9f3ff);
+    color: #333;
+}
+
+.card {
+    width: min(92%, 520px);
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 28px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 2;
+}
+
+.cake {
+    font-size: 70px;
+}
+
+h1 {
+    font-size: clamp(30px, 8vw, 48px);
+    margin: 10px 0;
+    color: #e85d8e;
+}
+
+h2 {
+    margin: 8px 0 18px;
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.from {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn {
+    border: 0;
+    border-radius: 999px;
+    padding: 14px 24px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #e85d8e;
+    color: white;
+    box-shadow: 0 8px 18px rgba(232, 93, 142, 0.3);
+}
+
+.surprise {
+    display: none;
+    margin-top: 22px;
+    font-size: 19px;
+}
+
+.show {
+    display: block;
+}
+
+.balloon {
+    position: absolute;
+    font-size: 42px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.b1 {
+    left: 6%;
+    top: 10%;
+}
+
+.b2 {
+    right: 7%;
+    top: 18%;
+    animation-delay: 1s;
+}
+
+.b3 {
+    left: 12%;
+    bottom: 12%;
+    animation-delay: 2s;
+}
+
+.b4 {
+    right: 12%;
+    bottom: 8%;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(3deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
+
+<main class="card">
+
+    <div class="cake">🎂</div>
+
+    <h1>Happy Birthday!</h1>
+
+    <h2>Muhammad Tayyab 🎉</h2>
+
+    <p>
+        Wishing you a wonderful birthday filled with happiness,
+        success, good memories, and lots of smiles!
+    </p>
+
+    <p>
+        May Allah bless you with a beautiful year ahead
+        and grant you all the good things you wish for.
+    </p>
+
+    <button class="btn"
+        onclick="document.getElementById('surprise').classList.add('show'); this.textContent='🎉 Surprise Opened!'">
+        Open Your Surprise 🎁
+    </button>
+
+    <div id="surprise" class="surprise">
+        🥳 Once again, Happy Birthday Muhammad Tayyab!
+        Have an amazing day! 🎊
+    </div>
+
+    <p class="from">
+        With best wishes,<br>
+        Muhammad
+    </p>
+
+</main>
+
+</body>
+</html>
